@@ -131,34 +131,28 @@ $context = stream_context_create ($context);
 $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   }
 
-  public function slide_shows_image()
-  {
+  public function slide_shows_image() {
     $this->load->view('demo/slide_shows_image');
   }
 
-  public function hieu_ung_quang_cao()
-  {
+  public function hieu_ung_quang_cao() {
     $this->load->view('demo/hieu_ung_quang_cao');
   }
 
-  public function shows_sam_pham_nhieu_chi_tiet()
-  {
+  public function shows_sam_pham_nhieu_chi_tiet() {
     $this->load->view('demo/shows_sam_pham_nhieu_chi_tiet');
   }
 
-  public function shows_google_map($value='')
-  {
+  public function shows_google_map($value='') {
     $this->load->view('demo/shows_google_map');
   }
 
-  public function shows_question()
-  {
+  public function shows_question() {
     $this->data['shows_question'] = $this->demo_model->get_question()->result_array();
     $this->load->view('demo/shows_question',$this->data);
   }
 
-  public function ajax()
-  {
+  public function ajax() {
    $right_answer=0;
    $wrong_answer=0;
    $unanswered=0;
@@ -180,6 +174,14 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
 
    echo " Số câu hỏi không trả lời  : <span class='highlight'>". $unanswered."</span><br>";
    echo "</div>";
+  }
+
+  public function create_loading() {
+    $this->load->view('demo/loading');
+  }
+
+  public function responsive_quote_carousel() {
+    $this->load->view('demo/responsive_quote_carousel');
   }
     
 }
