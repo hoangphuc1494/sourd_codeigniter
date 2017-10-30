@@ -183,6 +183,18 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   public function responsive_quote_carousel() {
     $this->load->view('demo/responsive_quote_carousel');
   }
+
+  public function shopping_cart() {
+    $this->load->view('demo/shopping_cart');
+  }
+
+  public function form_send_email() {
+    $this->load->view('demo/form_send_email');
+  }
+
+  public function slideshow() {
+    $this->load->view('demo/slideshow');
+  }
     
 }
 ?>
