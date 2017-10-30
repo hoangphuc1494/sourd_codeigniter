@@ -195,6 +195,14 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   public function slideshow() {
     $this->load->view('demo/slideshow');
   }
+
+  public function create_chu_ky_dien_tu() {
+    $this->load->view('demo/create_chu_ky_dien_tu');
+  }
+
+  public function edit_table() {
+    $this->load->view('demo/edit_table');
+  }
     
 }
 ?>
