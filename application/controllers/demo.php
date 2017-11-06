@@ -203,6 +203,10 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   public function edit_table() {
     $this->load->view('demo/edit_table');
   }
+
+  public function template_thevilla() {
+    $this->load->view('demo/template_thevilla');
+  }
     
 }
 ?>
