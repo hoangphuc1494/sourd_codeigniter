@@ -8,12 +8,60 @@
 .slider .indicators .indicator-item.active {
   background-color: #ffffff;
 }
-.slider {
-  width: 900px;
+.slider { 
+  width: 100%;
   margin: 0 auto;
 }
 .slider .indicators {
   bottom: 60px;
   z-index: 100;
   /* text-align: left; */
+}
+
+.carousel img {
+    width: 100%;
+    height: auto;
+}
+ 
+.menu-top {
+    display: block;
+    width: 100%;
+    position: relative;
+}
+.logo {
+    text-align: left;
+}
+
+.logo h3 {
+    margin: 0;
+    font-size: 35px;
+    padding: 10px 0;
+}
+
+.info-header-top {
+    text-align: center;
+    line-height: 58px;
+}
+
+.login-menu-top {
+    display: block;
+    text-align: right;
+    line-height: 58px;
+}
+.login-menu-top a {
+    display: inline-block;
+    margin-right: 5px;
+    font-size: 15px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+.login-menu-top a:hover {
+    text-decoration: none;
+}
+
+.login-menu-top a.login {border: 1px solid #FF9800;background: #FF9800;color: #fff;padding: 5px 10px;line-height: 25px;transition: .3s;border-radius: 4px;}
+
+.login-menu-top a.login:hover {
+    border: 1px solid #e89212;
+    background: #e89212;
 }
