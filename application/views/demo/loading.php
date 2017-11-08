@@ -8,7 +8,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<style type="text/css">
 		.animationload {
-			background-color: #fff;
+			/*background-color: #fff;*/
+			background-color:rgba(0, 0, 0, 0.5);
 			height: 100%;
 			left: 0;
 			position: fixed;

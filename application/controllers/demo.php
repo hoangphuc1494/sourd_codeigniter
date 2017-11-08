@@ -207,6 +207,10 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   public function template_thevilla() {
     $this->load->view('demo/template_thevilla');
   }
+
+  public function template_project() {
+    $this->load->view('demo/template_project');
+  }
     
 }
 ?>
