@@ -5,9 +5,12 @@
 class Demo extends CI_Controller {
 	function __construct() {
 		parent::__construct();
-    $this->load->helper('url');
+    // $this->load->helper('url');
+    $this->load->helper(array('form', 'url'));
     $this->load->model('demo_model');
+    $this->load->library(array('session'));
     // $this->load->model(array('demo_model'));
+    $this->load->library('form_validation');
 	}
 
 	public function test_function() {
@@ -211,6 +214,43 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
   public function template_project() {
     $this->load->view('demo/template_project');
   }
-    
+
+  public function upload_image(){
+    $this->load->view('demo/upload_image', array('error' => ' ' ));
+  }
+
+  public function do_upload() {
+    $config['upload_path']          = './uploads/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    // $config['max_size']             = 2000;
+    // $config['max_width']            = 1024;
+    // $config['max_height']           = 768;
+
+    $this->load->library('upload', $config);
+
+    if ( ! $this->upload->do_upload('userfile')) {
+      $error = array('error' => $this->upload->display_errors());
+      echo "<pre>";print_r($error);
+      // $this->load->view('upload_form', $error);
+    } else {
+      $data = array('upload_data' => $this->upload->data());
+      echo "<pre>";print_r($data);
+      // $this->load->view('upload_success', $data);
+    }
+  }
+
+  public function check_submit_form() {
+    $this->form_validation->set_rules('username', 'Username', 'required');
+    $this->form_validation->set_rules('password', 'Password', 'required');
+    $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
+    $this->form_validation->set_rules('email', 'Email', '');
+    if ($this->form_validation->run() == FALSE) {
+      $this->load->view('demo/check_submit_form');
+    } else {
+      echo "string";die;
+      // $this->load->view('formsuccess');
+    }
+  }
+
 }
 ?>
