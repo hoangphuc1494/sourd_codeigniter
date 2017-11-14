@@ -254,7 +254,6 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
 
   public function change_image() {
     $this->load->view('demo/change_image');
-    //phúc
   }
 
 }
