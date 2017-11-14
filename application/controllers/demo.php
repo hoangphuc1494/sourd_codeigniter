@@ -264,7 +264,7 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
     $this->load->view('demo/auto_upload',$this->data);
   }
 
-  public function auto_upload_image() {
+  public function auto_upload_image_1() {
     $config['upload_path']          = './uploads/';
     $config['allowed_types']        = 'gif|jpg|png';
     $this->load->library('upload', $config);
@@ -278,6 +278,30 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
       redirect('demo/auto_upload');
     }
   }
+
+  public function auto_upload_image() {
+    $this->form_validation->set_rules('file_image', 'file_image', 'trim|xss_clean');
+    if ($this->form_validation->run() == FALSE) {
+      $this->data['notification'] = "";
+     $this->data['shows_image'] = $this->demo_model->get_image()->result_array();
+     $this->load->view('demo/auto_upload',$this->data);
+   } else {
+    $config['upload_path']          = './uploads/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $this->load->library('upload', $config);
+    if (!$this->upload->do_upload('file_image')) {
+      $this->data['notification'] = "Upload error!";
+     $this->data['shows_image'] = $this->demo_model->get_image()->result_array();
+     $this->load->view('demo/auto_upload',$this->data);
+    } else {
+      $name_image = $this->upload->data('file_name');
+      $this->demo_model->simple_insert('images',array('image'=>$name_image));
+      $this->data['notification'] = "Upload success!";
+     $this->data['shows_image'] = $this->demo_model->get_image()->result_array();
+     $this->load->view('demo/auto_upload',$this->data);
+    }
+  }
+}
 
 }
 ?>

@@ -222,13 +222,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<hr>
 			</div>
 		</section>
+		<footer>
+			<div class="footer-image-container">
+				<img class="img-responsive footer-image" style="height: 600px;" src="<?php echo base_url(); ?>images/image_banner/image_footer.jpg">
+			</div>
+		</footer>
 	</div>
 
 	<script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/0.96.1/js/materialize.min.js'></script>
-	<script  src="<?php echo base_url()?>assest/bootstrap/js/bootstrap.min.js"></script>
-	<script  src="<?php echo base_url()?>assest/materialize-slider/js/owl.carousel.js"></script>
-	<script  src="<?php echo base_url()?>assest/materialize-slider/js/index.js"></script>
+		<script  src="<?php echo base_url()?>assest/bootstrap/js/bootstrap.min.js"></script>
+		<script  src="<?php echo base_url()?>assest/materialize-slider/js/owl.carousel.js"></script>
+		<script  src="<?php echo base_url()?>assest/materialize-slider/js/index.js"></script>
 	<script>
 		$('.owl-carousel').owlCarousel({
 			loop:true,

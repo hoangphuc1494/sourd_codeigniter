@@ -9,8 +9,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<style type="text/css"></style>
 </head>
 <body>
+<?php if ($notification != '') { ?>
+	<div class="col-xs-12 col-sm-12 col-md-12" id="notification"><?php echo $notification; ?></div>
+	<?php } ?>
 	<div class="col-xs-12 col-sm-12 col-md-12">
-	<img src="<?php echo base_url().'images/item-1.png' ?>">
+		<img src="<?php echo base_url().'images/item-1.png' ?>">
 		<?php foreach ($shows_image as $shows_image_list) { ?>
 		<img src="<?php echo base_url().'uploads/'.$shows_image_list['image'] ?>">
 		<?php } ?>
