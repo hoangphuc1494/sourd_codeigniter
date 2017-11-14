@@ -241,10 +241,12 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
 
   public function check_submit_form() {
     $this->form_validation->set_rules('username', 'Username', 'required');
-    $this->form_validation->set_rules('password', 'Password', 'required');
-    $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
-    $this->form_validation->set_rules('email', 'Email', '');
+    // $this->form_validation->set_rules('password', 'Password', 'required');
+    // $this->form_validation->set_rules('passconf', 'Password Confirmation', 'required');
+    // $this->form_validation->set_rules('email', 'Email', '');
     if ($this->form_validation->run() == FALSE) {
+      $this->session->set_flashdata('sErrMSGType', 'message-green');
+      $this->session->set_flashdata('sErrMSG', 'phúc');
       $this->load->view('demo/check_submit_form');
     } else {
       echo "string";die;
@@ -254,6 +256,27 @@ $data = file_get_contents("http://www.test.com",0,$context); echo $data;
 
   public function change_image() {
     $this->load->view('demo/change_image');
+  }
+
+  public function auto_upload() {
+    $this->data['notification'] = $this->uri->segment(3);
+    $this->data['shows_image'] = $this->demo_model->get_image()->result_array();
+    $this->load->view('demo/auto_upload',$this->data);
+  }
+
+  public function auto_upload_image() {
+    $config['upload_path']          = './uploads/';
+    $config['allowed_types']        = 'gif|jpg|png';
+    $this->load->library('upload', $config);
+    if (!$this->upload->do_upload('file_image')) {
+      // $this->data['notification'] = "Upload error!";
+      redirect('demo/auto_upload');
+    } else {
+      $name_image = $this->upload->data('file_name');
+      $this->demo_model->simple_insert('images',array('image'=>$name_image));
+      // $this->data['notification'] = "Upload success!";
+      redirect('demo/auto_upload');
+    }
   }
 
 }
