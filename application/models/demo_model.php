@@ -30,10 +30,11 @@ class Demo_model extends CI_Model {
     public function commonDelete($table = '', $condition = '') {
         return $this->db->delete ( $table, $condition );
     }
-    // public function get_details($select = '', $table = '', $condition = ''){
+    // public function get_details($select = '', $table = '', $condition = '', $order_by = ''){
     //      $this->db->select($select);
     //      $this->db->from($table);
     //      $this->db->where($condition);
+    //      $this->db->order_by($order_by);
     //      return $this->db->get();
     // }
 

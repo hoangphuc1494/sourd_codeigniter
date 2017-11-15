@@ -6,19 +6,25 @@ class Demo extends CI_Controller {
 	function __construct() {
 		parent::__construct();
     // $this->load->helper('url');
-    $this->load->helper(array('form', 'url'));
+    $this->load->helper(array('form', 'url','date'));
     $this->load->model('demo_model');
     $this->load->library(array('session'));
     // $this->load->model(array('demo_model'));
     $this->load->library('form_validation');
-	}
+  }
 
-	public function test_function() {
+  public function test_function() {
+    /*$datestring = 'Year: %Y Month: %m Day: %d - %h:%i %a';
+    $time = time();
+    echo mdate($datestring, $time);die;
+    $format = 'DATE_RFC822';
+    $time = time();
+    echo standard_date($format, $time);die;*/
     $ip = "192.206.151.131";
     $getloc = json_decode(file_get_contents("http://ipinfo.io/".$ip));
     echo "<pre>";print_r($getloc);die;
 
-	}
+  }
 
 	public function test_localhost_clien() {
 		// $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
@@ -123,7 +129,7 @@ function convert_vi_to_en($str = 'Nguyễn Hoàng Phúc') {
   $str = preg_replace("/(Ù|Ú|Ụ|Ủ|Ũ|Ư|Ừ|Ứ|Ự|Ử|Ữ)/", 'U', $str);
   $str = preg_replace("/(Ỳ|Ý|Ỵ|Ỷ|Ỹ)/", 'Y', $str);
   $str = preg_replace("/(Đ)/", 'D', $str);
-  //$str = str_replace(" ", "-", str_replace("&*#39;","",$str));
+  $str = str_replace(" ", "-", str_replace("&*#39;","",$str));
   echo $str;
   }
 
